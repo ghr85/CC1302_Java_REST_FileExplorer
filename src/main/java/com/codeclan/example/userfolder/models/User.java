@@ -1,9 +1,8 @@
 package com.codeclan.example.userfolder.models;
 
-import com.sun.tools.javac.util.List;
-
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="users")
@@ -12,8 +11,8 @@ public class User {
     @Column
     private  String userName;
     @Column
-    private ArrayList<Folder> folders;
-
+    private List<Folder> folders;
+    @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,11 +32,11 @@ public class User {
         this.userName = userName;
     }
 
-    public ArrayList<Folder> getFolders() {
+    public List<Folder> getFolders() {
         return folders;
     }
 
-    public void setFolders(ArrayList<Folder> folders) {
+    public void setFolders(List<Folder> folders) {
         this.folders = folders;
     }
 
