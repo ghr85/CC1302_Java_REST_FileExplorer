@@ -1,5 +1,7 @@
 package com.codeclan.example.userfolder.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,9 +13,11 @@ public class File {
     private String extension;
     @Column
     private int size;
-    @Column
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;
-    @Column
+//    @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;

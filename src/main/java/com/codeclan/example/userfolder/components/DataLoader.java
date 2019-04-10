@@ -28,11 +28,8 @@ public class DataLoader implements ApplicationRunner {
         userRepository.save(user2);
 
         Folder folder1 = new Folder("TestFolder1");
-        folderRepository.save(folder1);
         Folder folder2 = new Folder("TestFolder2");
-        folderRepository.save(folder2);
         Folder folder3 = new Folder("TestFolder3");
-        folderRepository.save(folder3);
         user1.addFolder(folder1);
         user1.addFolder(folder2);
         user2.addFolder(folder3);

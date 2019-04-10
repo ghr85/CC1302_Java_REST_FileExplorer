@@ -1,5 +1,7 @@
 package com.codeclan.example.userfolder.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,11 +10,14 @@ import java.util.List;
 public class Folder {
     @Column
     private String name;
-    @Column
+    @JsonIgnore
+    @OneToMany(mappedBy = "folder", fetch = FetchType.LAZY)
     private List<File> files;
-    @Column
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id")
     private User user;
-    @Column
+//    @Column
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
